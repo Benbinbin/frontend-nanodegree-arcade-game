@@ -32,30 +32,39 @@ var Engine = (function(global) {
      * and handles properly calling the update and render methods.
      */
     function main() {
-        /* Get our time delta information which is required if your game
-         * requires smooth animation. Because everyone's computer processes
-         * instructions at different speeds we need a constant value that
-         * would be the same for everyone (regardless of how fast their
-         * computer is) - hurray time!
-         */
-        var now = Date.now(),
-            dt = (now - lastTime) / 1000.0;
+        if(player.life > 0) {
+            /* Get our time delta information which is required if your game
+            * requires smooth animation. Because everyone's computer processes
+            * instructions at different speeds we need a constant value that
+            * would be the same for everyone (regardless of how fast their
+            * computer is) - hurray time!
+            */
+            var now = Date.now(),
+                dt = (now - lastTime) / 1000.0;
 
-        /* Call our update/render functions, pass along the time delta to
-         * our update function since it may be used for smooth animation.
-         */
-        update(dt);
-        render();
+            /* Call our update/render functions, pass along the time delta to
+            * our update function since it may be used for smooth animation.
+            */
+            
+                
+            
+            update(dt);
+            render();
 
-        /* Set our lastTime variable which is used to determine the time delta
-         * for the next time this function is called.
-         */
-        lastTime = now;
+            /* Set our lastTime variable which is used to determine the time delta
+            * for the next time this function is called.
+            */
+            lastTime = now;
 
-        /* Use the browser's requestAnimationFrame function to call this
-         * function again as soon as the browser is able to draw another frame.
-         */
-        win.requestAnimationFrame(main);
+            /* Use the browser's requestAnimationFrame function to call this
+            * function again as soon as the browser is able to draw another frame.
+            */
+            win.requestAnimationFrame(main);
+        }
+        else{
+            player.life = 3;
+            init();
+        }
     }
 
     /* This function does some initial setup that should only occur once,
@@ -77,9 +86,10 @@ var Engine = (function(global) {
      * functionality this way (you could just implement collision detection
      * on the entities themselves within your app.js file).
      */
+
+
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -89,12 +99,15 @@ var Engine = (function(global) {
      * the data/properties related to the object. Do your drawing in your
      * render methods.
      */
+
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
+            enemy.checkCollisions();
         });
         player.update();
     }
+
 
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every

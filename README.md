@@ -1,20 +1,25 @@
-# Classic Arcade Game Clone Project
+# 青蛙过河类游戏
 
-## Table of Contents
+## 介绍
 
-- [Instructions](#instructions)
-- [Contributing](#contributing)
+该游戏是 Udacity [前端开发进阶](https://cn.udacity.com/course/front-end-web-developer-nanodegree--nd001-cn-advanced) 纳米学位的 《深入面向对象的 JavaScript》章节的项目：开发经典街机游戏。
 
-## Instructions
+从[原始仓库](https://github.com/udacity/frontend-nanodegree-arcade-game)获得可视化资源和游戏循环引擎；使用这些工具时向游戏添加一系列实体（包括玩家角色和敌人），创建经典街机游戏「青蛙过河」。
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+实现了项目的基本要求功能：
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+在此游戏中有玩家和敌人 (小虫)。玩家的目标是抵达水域，并且不会撞到任何其他敌人。玩家可以上下左右移动。敌人在场景中的道路上移动速度变化不一。一旦玩家撞到敌人，游戏就会重置，并且玩家返回起始方框。玩家抵达水域后，游戏胜利。
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
+## 运行
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+下载或克隆该项目
 
-## Contributing
+```shell
+git clone https://github.com/Benbinbin/frontend-nanodegree-arcade-game.git
+```
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+打开 `frontend-nanodegree-arcade-game` 目录下的 `index.html` 文件运行游戏。
+
+## 操作方法
+
+使用键盘的上下左右键操作角色，避开敌人（小虫），抵达对面的水域即为成功（并自带返回草地）。
